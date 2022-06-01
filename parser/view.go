@@ -11,7 +11,7 @@ import (
 
 func ParseView(result_html io.Reader, id string, l string) (res Result, err error) {
 	var r Result
-	r.Id = fmt.Sprintf("%s", id)
+	r.Id = id
 	doc, err := html.Parse(result_html)
 	dfsv(doc, &r, l)
 	return r, err
@@ -85,8 +85,6 @@ func dfsv(n *html.Node, in *Result, l string) *html.Node {
 	} else if CheckClass(n, fmt.Sprintf("multiSenseDef manyLang%s ml20", l)) {
 		// Get the english definition
 		in.Senses[len(in.Senses)-1].Definition = GetTextAll(n)
-		if n.NextSibling.NextSibling == nil {
-		}
 
 	} else if CheckClass(n, "dot") || CheckClass(n, "dot printArea") {
 		// Get the examples

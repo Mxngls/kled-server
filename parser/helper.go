@@ -100,21 +100,6 @@ func MatchBetween(s string, open string, close string) string {
 	return ""
 }
 
-// Get rid of everything other than alphanumeric characters in
-// given string
-func cleanString(s []byte) string {
-	j := 0
-	for _, b := range s {
-		if ('a' <= b && b <= 'z') ||
-			('A' <= b && b <= 'Z') ||
-			('0' <= b && b <= '9') {
-			s[j] = b
-			j++
-		}
-	}
-	return string(s[:j])
-}
-
 func cleanStringSpecial(s []byte) string {
 	j := 0
 	for _, b := range s {
@@ -124,9 +109,4 @@ func cleanStringSpecial(s []byte) string {
 		}
 	}
 	return strings.TrimSpace(string(s[:j]))
-}
-
-// Get rid of redundant spaces in a given string
-func standardizeSpaces(s string) string {
-	return strings.Join(strings.Fields(s), "")
 }
