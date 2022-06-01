@@ -31,18 +31,12 @@ func CheckAttributeVal(n *html.Node, key string, val string) bool {
 
 // Check for the existence of a given id
 func CheckId(n *html.Node, id string) bool {
-	if CheckAttributeVal(n, "id", id) {
-		return true
-	}
-	return false
+	return CheckAttributeVal(n, "id", id)
 }
 
 // Check for the existence of a given class
 func CheckClass(n *html.Node, class string) bool {
-	if CheckAttributeVal(n, "class", class) {
-		return true
-	}
-	return false
+	return CheckAttributeVal(n, "class", class)
 }
 
 // Get all contents of a given node
