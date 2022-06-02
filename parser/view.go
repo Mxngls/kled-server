@@ -21,7 +21,10 @@ func dfsv(n *html.Node, in *Result, l string) *html.Node {
 	// Get the Hangul and Hanja
 	if CheckClass(n, "word_head") {
 		in.Hangul = GetContent(n, "sup")
-		hanja := MatchBetween(n.NextSibling.Data, "(", ")")
+
+	} else if CheckClass(n, "chi_info ml5") {
+		// Get the Hanja
+		hanja := MatchBetween(GetTextAll(n), "(", " )")
 		in.Hanja = hanja
 
 	} else if CheckClass(n, "search_sub") {
