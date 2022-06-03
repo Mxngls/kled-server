@@ -1,7 +1,6 @@
 package parser
 
 import (
-	"fmt"
 	"strings"
 
 	"golang.org/x/net/html"
@@ -49,7 +48,6 @@ func GetContent(n *html.Node, tag string) (content string) {
 		text := []rune(n.Data)
 		var f string
 		var l string
-		fmt.Println(n.Data)
 		if text[len(text)-1] == ' ' {
 			l = " "
 		} else if (text[0]) == ' ' {
