@@ -80,12 +80,12 @@ func dfsv(n *html.Node, in *Result, l string) *html.Node {
 		l := len(in.Senses)
 		in.Senses[l-1].Translation = cleanStringSpecial([]byte(GetTextAll(n)))
 
-	} else if CheckClass(n, "senseDef ml20") {
+	} else if CheckClass(n, "senseDef ml20 printArea") {
 		// Get the korean definition
 		l := len(in.Senses)
 		in.Senses[l-1].KrDefinition = GetTextAll(n)
 
-	} else if CheckClass(n, fmt.Sprintf("multiSenseDef manyLang%s ml20", l)) {
+	} else if CheckClass(n, fmt.Sprintf("multiSenseDef manyLang%s ml20 printArea", l)) {
 		// Get the english definition
 		in.Senses[len(in.Senses)-1].Definition = GetTextAll(n)
 
