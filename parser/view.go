@@ -100,7 +100,7 @@ func dfsv(n *html.Node, in *Result, l string) *html.Node {
 			}
 		}
 
-	} else if CheckClass(n, "heading_wrap") {
+	} else if CheckClass(n, "heading_wrap printArea") {
 		getRef(n, in, l)
 	}
 
